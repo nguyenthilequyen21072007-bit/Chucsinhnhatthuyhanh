@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Võ Thị Thuý Hằng ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+}
+
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    touch-action:none;
+}
+
+#galaxy{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at center,
+        rgba(255,20,100,.12),
+        transparent 30%),
+        #000;
+    perspective:1200px;
+}
+
+#space{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:1px;
+    height:1px;
+    transform-style:preserve-3d;
+}
+
+/* SAO */
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    box-shadow:0 0 6px white;
+    opacity:.7;
+}
+
+/* VẬT THỂ */
+
+.object{
+    position:absolute;
+    left:0;
+    top:0;
+    transform-style:preserve-3d;
+    pointer-events:none;
+}
+
+/* ẢNH */
+
+.photo{
+    width:100px;
+    height:130px;
+    object-fit:cover;
+    padding:5px;
+    background:white;
+    border-radius:8px;
+
+    box-shadow:
+        0 0 12px rgba(255,80,160,.5),
+        0 0 30px rgba(255,0,100,.25);
+
+    animation:
+        photoFly var(--duration) linear infinite;
+
+    animation-delay:var(--delay);
+}
+
+/* CHỮ */
+
+.text{
+    color:#f58ab7;
+    font-size:clamp(22px,5vw,40px);
+    font-weight:bold;
+    font-style:italic;
+    white-space:nowrap;
+
+    text-shadow:
+        0 0 6px #ff4f9a,
+        0 0 18px rgba(255,0,100,.6);
+
+    animation:
+        textFly var(--duration) linear infinite;
+
+    animation-delay:var(--delay);
+}
+
+/* TIM */
+
+.heart{
+    color:#ff4d87;
+    font-size:clamp(18px,5vw,36px);
+
+    text-shadow:
+        0 0 8px #ff477f,
+        0 0 22px #ff0055;
+
+    animation:
+        heartFly var(--duration) linear infinite;
+
+    animation-delay:var(--delay);
+}
+
+
+/* =========================
+   ẢNH BAY TRONG KHÔNG GIAN
+========================= */
+
+@keyframes photoFly{
+
+    0%{
+        transform:
+            translate3d(
+                var(--x),
+                var(--y),
+                -1000px
+            )
+            rotateX(var(--rx))
+            rotateY(var(--ry))
+            rotateZ(var(--rz))
+            scale(.25);
+
+        opacity:0;
+        filter:blur(5px);
+    }
+
+    15%{
+        opacity:.7;
+        filter:blur(1px);
+    }
+
+    40%{
+        transform:
+            translate3d(
+                var(--x),
+                var(--y),
+                0
+            )
+            rotateX(var(--rx))
+            rotateY(var(--ry))
+            rotateZ(var(--rz))
+            scale(var(--scale));
+
+        opacity:1;
+        filter:blur(0);
+    }
+
+    70%{
+        transform:
+            translate3d(
+                calc(var(--x) + var(--moveX)),
+                calc(var(--y) + var(--moveY)),
+                500px
+            )
+            rotateX(10deg)
+            rotateY(15deg)
+            rotateZ(var(--rz))
+            scale(calc(var(--scale) + .2));
+
+        opacity:.8;
+    }
+
+    100%{
+        transform:
+            translate3d(
+                calc(var(--x) + var(--moveX)),
+                calc(var(--y) + var(--moveY)),
+                1100px
+            )
+            rotateX(var(--rx))
+            rotateY(var(--ry))
+            rotateZ(var(--rz))
+            scale(1.5);
+
+        opacity:0;
+        filter:blur(6px);
+    }
+}
+
+
+/* =========================
+   CHỮ BAY
+========================= */
+
+@keyframes textFly{
+
+    0%{
+        transform:
+            translate3d(
+                var(--x),
+                var(--y),
+                -900px
+            )
+            rotate(var(--rz))
+            scale(.3);
+
+        opacity:0;
+        filter:blur(5px);
+    }
+
+    20%{
+        opacity:.7;
+        filter:blur(1px);
+    }
+
+    50%{
+        transform:
+            translate3d(
+                var(--x),
+                var(--y),
+                100px
+            )
+            rotate(var(--rz))
+            scale(var(--scale));
+
+        opacity:1;
+        filter:blur(0);
+    }
+
+    75%{
+        transform:
+            translate3d(
+                calc(var(--x) + var(--moveX)),
+                calc(var(--y) + var(--moveY)),
+                550px
+            )
+            rotate(calc(var(--rz) + 8deg))
+            scale(calc(var(--scale) + .2));
+
+        opacity:.8;
+    }
+
+    100%{
+        transform:
+            translate3d(
+                calc(var(--x) + var(--moveX)),
+                calc(var(--y) + var(--moveY)),
+                1000px
+            )
+            rotate(var(--rz))
+            scale(1.4);
+
+        opacity:0;
+        filter:blur(6px);
+    }
+}
+
+
+/* =========================
+   TIM BAY
+========================= */
+
+@keyframes heartFly{
+
+    0%{
+        transform:
+            translate3d(
+                var(--x),
+                var(--y),
+                -1000px
+            )
+            scale(.2);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:.7;
+    }
+
+    50%{
+        transform:
+            translate3d(
+                var(--x),
+                var(--y),
+                100px
+            )
+            scale(var(--scale));
+
+        opacity:1;
+    }
+
+    75%{
+        transform:
+            translate3d(
+                calc(var(--x) + var(--moveX)),
+                calc(var(--y) + var(--moveY)),
+                500px
+            )
+            scale(calc(var(--scale) + .2));
+
+        opacity:.8;
+    }
+
+    100%{
+        transform:
+            translate3d(
+                calc(var(--x) + var(--moveX)),
+                calc(var(--y) + var(--moveY)),
+                1000px
+            )
+            scale(.1);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   TÊN Ở GIỮA
+========================= */
+
+.center{
+    position:fixed;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    z-index:1000;
+    text-align:center;
+    pointer-events:none;
+    width:100%;
+}
+
+.name{
+    color:white;
+    font-size:clamp(28px,8vw,55px);
+    font-weight:bold;
+    white-space:nowrap;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.7),
+        0 0 30px rgba(255,50,130,.7);
+}
+
+.love{
+    margin-top:10px;
+    color:#ff82b5;
+    font-size:clamp(18px,5vw,28px);
+    font-style:italic;
+
+    text-shadow:0 0 12px #ff2f78;
+}
+
+
+/* HƯỚNG DẪN */
+
+.hint{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:2000;
+
+    color:white;
+    font-size:14px;
+    opacity:.7;
+    white-space:nowrap;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .photo{
+        width:78px;
+        height:105px;
+    }
+
+    .name{
+        font-size:30px;
+    }
+
+    .love{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+<audio id="bgMusic" loop>
+    <source src="nhac.mp3" type="audio/mpeg">
+</audio>
+<div id="galaxy">
+
+    <div id="space"></div>
+
+    <!-- TÊN Ở GIỮA -->
+
+    <div class="center">
+        <div class="name">
+            Võ Thị Thuý Hằng
+        </div>
+
+        <div class="love">
+            I love you 💖
+        </div>
+    </div>
+
+    <div class="hint">
+        chạm 2 lần vào màn hình nha 💖
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   TẠO SAO
+========================= */
+
+const galaxy =
+    document.getElementById("galaxy");
+
+const space =
+    document.getElementById("space");
+
+for(let i=0;i<120;i++){
+
+    const star =
+        document.createElement("div");
+
+    star.className="star";
+
+    star.style.left =
+        Math.random()*100+"vw";
+
+    star.style.top =
+        Math.random()*100+"vh";
+
+    const size =
+        Math.random()*2+1;
+
+    star.style.width=size+"px";
+    star.style.height=size+"px";
+
+    star.style.opacity =
+        .2+Math.random()*.8;
+
+    galaxy.appendChild(star);
+}
+
+
+/* =========================
+   RANDOM
+========================= */
+
+function random(min,max){
+    return Math.random()*(max-min)+min;
+}
+
+
+/* =========================
+   TẠO VẬT THỂ
+========================= */
+
+function setup(element){
+
+    element.classList.add("object");
+
+    element.style.setProperty(
+        "--x",
+        random(
+            -window.innerWidth*.65,
+            window.innerWidth*.65
+        )+"px"
+    );
+
+    element.style.setProperty(
+        "--y",
+        random(
+            -window.innerHeight*.65,
+            window.innerHeight*.65
+        )+"px"
+    );
+
+    element.style.setProperty(
+        "--moveX",
+        random(-180,180)+"px"
+    );
+
+    element.style.setProperty(
+        "--moveY",
+        random(-180,180)+"px"
+    );
+
+    element.style.setProperty(
+        "--scale",
+        random(.6,1.2)
+    );
+
+    element.style.setProperty(
+        "--rx",
+        random(-20,20)+"deg"
+    );
+
+    element.style.setProperty(
+        "--ry",
+        random(-25,25)+"deg"
+    );
+
+    element.style.setProperty(
+        "--rz",
+        random(-15,15)+"deg"
+    );
+
+    element.style.setProperty(
+        "--duration",
+        random(7,14)+"s"
+    );
+
+    element.style.setProperty(
+        "--delay",
+        random(-14,0)+"s"
+    );
+
+    space.appendChild(element);
+}
+
+
+/* =========================
+   ẢNH
+========================= */
+
+[
+    "anh1.jpg",
+    "anh2.jpg",
+    "anh3.jpg",
+    "anh4.jpg",
+    "anh5.jpg",
+    "anh6.jpg"
+].forEach(src=>{
+
+    const img =
+        document.createElement("img");
+
+    img.src=src;
+    img.className="photo";
+
+    setup(img);
+});
+
+
+/* =========================
+   CHỮ
+========================= */
+
+[
+    "There is no other",
+    "I choose you",
+    "Only you ❤️",
+    "Love you forever",
+    "You are my home",
+    "My favorite person",
+    "Always with you",
+    "Forever us"
+].forEach(txt=>{
+
+    const div =
+        document.createElement("div");
+
+    div.className="text";
+    div.innerHTML=txt;
+
+    setup(div);
+});
+
+
+/* =========================
+   TIM
+========================= */
+
+for(let i=0;i<35;i++){
+
+    const heart =
+        document.createElement("div");
+
+    heart.className="heart";
+    heart.innerHTML="♥";
+
+    setup(heart);
+}
+
+
+/* =========================
+   DI CHUYỂN CAMERA
+========================= */
+
+let targetX=0;
+let targetY=0;
+
+let currentX=0;
+let currentY=0;
+
+function camera(){
+
+    currentX +=
+        (targetX-currentX)*.04;
+
+    currentY +=
+        (targetY-currentY)*.04;
+
+    space.style.transform =
+        `rotateX(${currentY}deg)
+         rotateY(${currentX}deg)`;
+
+    requestAnimationFrame(camera);
+}
+
+camera();
+
+
+/* =========================
+   MOUSE
+========================= */
+
+document.addEventListener(
+    "mousemove",
+    e=>{
+
+        targetX =
+            (e.clientX/
+            window.innerWidth-.5)*18;
+
+        targetY =
+            (e.clientY/
+            window.innerHeight-.5)*-18;
+    }
+);
+
+
+/* =========================
+   CẢM ỨNG
+========================= */
+
+document.addEventListener(
+    "touchmove",
+    e=>{
+
+        const t=e.touches[0];
+
+        targetX =
+            (t.clientX/
+            window.innerWidth-.5)*20;
+
+        targetY =
+            (t.clientY/
+            window.innerHeight-.5)*-20;
+
+    },
+    {passive:true}
+);
+
+
+/* =========================
+   DOUBLE TAP
+========================= */
+
+let lastTap=0;
+
+document.addEventListener(
+    "touchend",
+    e=>{
+
+        const now=Date.now();
+
+        if(now-lastTap<350){
+
+            burst(
+                e.changedTouches[0].clientX,
+                e.changedTouches[0].clientY
+            );
+        }
+
+        lastTap=now;
+    }
+);
+
+
+/* =========================
+   TIM NỔ
+========================= */
+
+function burst(x,y){
+
+    for(let i=0;i<25;i++){
+
+        const heart =
+            document.createElement("div");
+
+        heart.className="heart";
+
+        heart.innerHTML="♥";
+
+        heart.style.position="fixed";
+        heart.style.left=x+"px";
+        heart.style.top=y+"px";
+        heart.style.zIndex=3000;
+
+        heart.style.transition=
+            "all 1.5s ease";
+
+        galaxy.appendChild(heart);
+
+        requestAnimationFrame(()=>{
+
+            heart.style.transform=
+                `translate(
+                    ${random(-180,180)}px,
+                    ${random(-250,100)}px
+                )
+                scale(.2)`;
+
+            heart.style.opacity="0";
+        });
+
+        setTimeout(
+            ()=>heart.remove(),
+            1600
+        );
+    }
+}
+
+</script>
+<script>
+    const bgMusic = document.getElementById("bgMusic");
+
+document.addEventListener("click", () => {
+    bgMusic.play().catch(() => {});
+}, { once: true });
+</script>
+</body>
+</html>
